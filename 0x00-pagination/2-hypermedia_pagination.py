@@ -66,13 +66,14 @@ class Server:
 
         total_pages = 0
         data = self.get_page(page, page_size)
-        total_data = ceil(len(self.__dataset) / page_size)  # type: ignore
+        total_data = ceil(len(self.__dataset) / page_size) # type: ignore
 
         return {
             "page_size": len(data),
             "page": page,
             "data": data,
-            "next_page": None if (page*page_size) >= (total_pages - 1) else page+1,
+            "next_page": None if (page*page_size) >= (total_pages - 1) \
+                else page+1,
             "prev_page": None if page == 1 else page - 1,
             "total_pages": ceil(total_data/page_size)
         }
