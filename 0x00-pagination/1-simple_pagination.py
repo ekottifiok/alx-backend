@@ -46,8 +46,8 @@ class Server:
         arguments page with default value 1 and page_size with
         default value 10.
         """
-        assert page > 0 and page_size > 0
-        assert type(page) == int and type(page_size) == int
+        assert type(page) == int and type(page_size) == int \
+            and page > 0 and page_size > 0
         start, end = index_range(page, page_size)
         data = self.dataset()
         return [] if start > len(data) else data[start:end]
