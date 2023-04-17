@@ -48,9 +48,7 @@ class Server:
         assert type(page) == int and type(page_size) == int
         start, end = index_range(page, page_size)
         data = self.dataset()
-        if start > len(data):
-            return []
-        return data[start:end]
+        return [] if start > len(data) else data[start:end]
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """returns information about a page and the data

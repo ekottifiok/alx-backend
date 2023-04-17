@@ -3,6 +3,7 @@
 from typing import Tuple
 from csv import reader
 
+
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """
     Write a function named index_range that takes two integer arguments

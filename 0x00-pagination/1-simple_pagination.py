@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import csv
 import math
 from typing import List, Tuple
@@ -40,14 +41,13 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        from csv import reader
-        if not isinstance(page, int) or not isinstance(page_size, int) or page <= 0 or page_size <= 0:
-            raise AssertionError
+        """
+        Implement a method named get_page that takes two integer
+        arguments page with default value 1 and page_size with
+        default value 10.
+        """
+        assert page > 0 and page_size > 0
+        assert type(page) == int and type(page_size) == int
         start, end = index_range(page, page_size)
-        data_csv = []
-        with open(self.DATA_FILE) as csv_file:
-            for row in reader(csv_file, delimiter=","):
-                data_csv.append(row)
-        return data_csv[
-            1 if start == 0 else start:
-            end+1 if start == 0 else end]
+        data = self.dataset()
+        return [] if start > len(data) else data[start:end]
