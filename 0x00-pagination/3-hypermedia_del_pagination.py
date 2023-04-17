@@ -44,11 +44,11 @@ class Server:
             return []
         return data[start:end]
 
-    def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
+    def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict: # type: ignore
         """Retrieves info about a page from a given index and with a
         specified size.
         """
-        data = self.indexed_dataset()
+        data = self.indexed_dataset() # type: ignore
         assert index is not None and index >= 0 and index <= max(data.keys())
         page_data = []
         data_count = 0
