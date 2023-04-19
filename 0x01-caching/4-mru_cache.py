@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """MRU Caching"""
 from base_caching import BaseCaching
+from typing import Any
 from queue import LifoQueue
 
 
@@ -16,7 +17,7 @@ class MRUCache(BaseCaching):
         self.index = LifoQueue(self.MAX_ITEMS)
         super().__init__()
 
-    def put(self, key, item) -> None:
+    def put(self, key: Any, item: Any) -> None:
         """adds an item to the caching service with it key
 
         Args:
@@ -40,7 +41,7 @@ class MRUCache(BaseCaching):
         self.index.put(key)
         self.cache_data[key] = item
 
-    def get(self, key):
+    def get(self, key: Any) -> Any:
         """Retrieves the data stored in the cache
 
         Args:
