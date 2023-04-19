@@ -4,6 +4,7 @@ from base_caching import BaseCaching
 from typing import Any
 from collections import OrderedDict
 
+
 class MRUCache(BaseCaching):
     """_summary_
 
@@ -34,7 +35,6 @@ class MRUCache(BaseCaching):
             print("DISCARD", self.cache_data.popitem(False)[0])
         self.cache_data[key] = item
         self.cache_data.move_to_end(key, last=False)
-        
 
     def get(self, key: Any) -> Any:
         """Retrieves the data stored in the cache
