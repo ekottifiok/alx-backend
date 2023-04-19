@@ -4,6 +4,7 @@ from base_caching import BaseCaching
 from typing import Any
 from collections import OrderedDict
 
+
 class LIFOCache(BaseCaching):
     """_summary_
 
@@ -30,10 +31,6 @@ class LIFOCache(BaseCaching):
         if len(self.cache_data) > self.MAX_ITEMS:
             print("DISCARD", self.cache_data.popitem(False)[0])
         self.cache_data.move_to_end(key, last=False)
-            
-        
-
-        
 
     def get(self, key: Any) -> Any:
         """Retrieves the data stored in the cache
