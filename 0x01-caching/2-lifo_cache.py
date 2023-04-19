@@ -26,7 +26,6 @@ class LIFOCache(BaseCaching):
         """
         if not key or not item:
             return
-        present = 1 if key in self.cache_data else 0
         self.cache_data.update({key: item})
         if len(self.cache_data) > self.MAX_ITEMS:
             print("DISCARD", self.cache_data.popitem(False)[0])
