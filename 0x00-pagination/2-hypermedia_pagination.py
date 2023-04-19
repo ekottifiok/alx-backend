@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Hypermedia pagination"""
 import csv
 from typing import Dict, List, Tuple
 
@@ -72,8 +73,7 @@ class Server:
             "page_size": len(data),
             "page": page,
             "data": data,
-            "next_page": None if (page*page_size) >= (total_pages - 1)
-            else page+1,
+            "next_page": None if len(self.__dataset) else page+1, # type: ignore
             "prev_page": None if page == 1 else page - 1,
             "total_pages": ceil(total_data/page_size)
         }
