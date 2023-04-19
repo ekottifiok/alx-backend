@@ -4,6 +4,7 @@ from base_caching import BaseCaching
 from typing import Any
 from collections import deque
 
+
 class LFUCache(BaseCaching):
     """_summary_
 
@@ -30,10 +31,10 @@ class LFUCache(BaseCaching):
         if key in self.cache_data:
             self.index.remove(key)
             self.counter = {key: 0 for key in self.counter.keys()}
-            
+
         elif len(self.counter) < self.MAX_ITEMS:
             pass
-        
+
         else:
             # removes the first object in the cache
             discard_value = sorted(self.counter.values())[0]

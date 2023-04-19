@@ -4,6 +4,7 @@ from base_caching import BaseCaching
 from typing import Any
 from queue import LifoQueue
 
+
 class LIFOCache(BaseCaching):
     """_summary_
 
