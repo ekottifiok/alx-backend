@@ -14,7 +14,7 @@ class LRUCache(BaseCaching):
 
     def __init__(self) -> None:
         """initializes the class"""
-        self.index = Queue(self.MAX_ITEMS)
+        self.index = Queue(BaseCaching.MAX_ITEMS)
         super().__init__()
 
     def put(self, key: Any, item: Any) -> None:

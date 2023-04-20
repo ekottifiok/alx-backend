@@ -14,7 +14,7 @@ class LFUCache(BaseCaching):
 
     def __init__(self) -> None:
         """initializes the class"""
-        self.index = deque(maxlen=self.MAX_ITEMS)
+        self.index = deque(maxlen=BaseCaching.MAX_ITEMS)
         self.counter = {}
         super().__init__()
 
@@ -32,7 +32,7 @@ class LFUCache(BaseCaching):
             self.index.remove(key)
             self.counter = {key: 0 for key in self.counter.keys()}
 
-        elif len(self.counter) < self.MAX_ITEMS:
+        elif len(self.counter) < BaseCaching.MAX_ITEMS:
             pass
 
         else:

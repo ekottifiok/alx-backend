@@ -30,7 +30,7 @@ class MRUCache(BaseCaching):
         if key in self.cache_data:
             self.cache_data[key] = item
             return
-        if len(self.cache_data)+1 > self.MAX_ITEMS:
+        if len(self.cache_data)+1 > BaseCaching.MAX_ITEMS:
             # returns k,v in FIFO order
             print("DISCARD", self.cache_data.popitem(False)[0])
         self.cache_data[key] = item

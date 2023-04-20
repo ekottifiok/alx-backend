@@ -1,4 +1,5 @@
 */*-main.py
+*/main_*.py
 */__pycache__
 0x00-pagination/Popular_Baby_Names.csv
 .vscode
