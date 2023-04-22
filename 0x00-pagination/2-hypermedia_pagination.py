@@ -30,8 +30,11 @@ class Server:
         self.__dataset = None
 
     def dataset(self) -> List[List]:
-        """Cached dataset
-        """
+        """opens the file and stores the data in a variable
+
+        Returns:
+            List[List]: carries the list of data
+        """        
         if self.__dataset is None:
             with open(self.DATA_FILE) as f:
                 reader = csv.reader(f)
@@ -65,9 +68,7 @@ class Server:
 
         from math import ceil
 
-        total_pages = 0
         data = self.get_page(page, page_size)
-        total_data = ceil(len(self.__dataset) / page_size)  # type: ignore
 
         return {
             "page_size": len(data),
@@ -75,5 +76,5 @@ class Server:
             "data": data,
             "next_page": None if len(self.__dataset) else page+1, # type: ignore
             "prev_page": None if page == 1 else page - 1,
-            "total_pages": ceil(total_data/page_size)
+            "total_pages": ceil(len(self.__dataset) / page_size)  # type: ignore
         }
