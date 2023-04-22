@@ -2,7 +2,6 @@
 """
 Deletion-resilient hypermedia pagination
 """
-
 import csv
 from typing import Dict, List
 
@@ -17,7 +16,10 @@ class Server:
         self.__indexed_dataset = None
 
     def dataset(self) -> List[List]:
-        """Cached dataset
+        """opens the file and stores the data in a variable
+
+        Returns:
+            List[List]: carries the list of data
         """
         if self.__dataset is None:
             with open(self.DATA_FILE) as f:
@@ -28,7 +30,10 @@ class Server:
         return self.__dataset
 
     def indexed_dataset(self) -> Dict[int, List]:
-        """Dataset indexed by sorting position, starting at 0
+        """indexes the  dataset into dict and list
+
+        Returns:
+            Dict[int, List]: _description_
         """
         if self.__indexed_dataset is None:
             dataset = self.dataset()
@@ -44,6 +49,12 @@ class Server:
             page_size: int = 10) -> Dict:
         """Retrieves info about a page from a given index and with a
         specified size.
+
+        Args:
+            index (int, optional): _description_. Defaults to None.
+
+        Returns:
+            Dict: _description_
         """
         data = self.indexed_dataset()  # type: ignore
         assert index is not None and index >= 0 and \
