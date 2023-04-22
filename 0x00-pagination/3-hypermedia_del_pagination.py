@@ -46,7 +46,7 @@ class Server:
     def get_hyper_index(
             self,
             index: int = None,  # type: ignore
-            page_size: int = 10) -> Dict:
+            page_size: int = 10) -> Dict[str, int | list[Unknown] | None]:
         """Retrieves info about a page from a given index and with a
         specified size.
 
