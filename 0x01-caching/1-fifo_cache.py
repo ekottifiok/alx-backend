@@ -28,7 +28,7 @@ class FIFOCache(BaseCaching):
             return
         self.cache_data.update({key: item})
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            print("DISCARD", self.cache_data.popitem(False)[0])
+            print("DISCARD:", self.cache_data.popitem(False)[0])
 
     def get(self, key: Any) -> Any:
         """Retrieves the data stored in the cache
