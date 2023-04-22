@@ -34,7 +34,7 @@ class Server:
 
         Returns:
             List[List]: carries the list of data
-        """        
+        """
         if self.__dataset is None:
             with open(self.DATA_FILE) as f:
                 reader = csv.reader(f)
@@ -74,7 +74,8 @@ class Server:
             "page_size": len(data),
             "page": page,
             "data": data,
-            "next_page": None if len(self.__dataset) else page+1, # type: ignore
+            "next_page": None if (page+1) >= len(self.__dataset)/page_size \
+                else page + 1,
             "prev_page": None if page == 1 else page - 1,
-            "total_pages": ceil(len(self.__dataset) / page_size)  # type: ignore
+            "total_pages": ceil(len(self.__dataset) / page_size)
         }
