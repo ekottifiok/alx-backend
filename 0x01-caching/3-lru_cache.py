@@ -36,7 +36,7 @@ class LRUCache(BaseCaching):
             # removes the first object in the cache
             discard_key = self.index.get()
             self.cache_data.pop(discard_key)
-            print("DISCARD", str(discard_key))
+            print("DISCARD:", str(discard_key))
 
         self.index.put(key)
         self.cache_data[key] = item

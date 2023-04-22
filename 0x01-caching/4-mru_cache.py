@@ -32,7 +32,7 @@ class MRUCache(BaseCaching):
             return
         if len(self.cache_data)+1 > BaseCaching.MAX_ITEMS:
             # returns k,v in FIFO order
-            print("DISCARD", self.cache_data.popitem(False)[0])
+            print("DISCARD:", self.cache_data.popitem(False)[0])
         self.cache_data[key] = item
         self.cache_data.move_to_end(key, last=False)
 

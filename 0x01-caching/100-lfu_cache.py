@@ -45,7 +45,7 @@ class LFUCache(BaseCaching):
             self.cache_data.pop(discard_key)
             self.counter.pop(discard_key)
             self.index.remove(discard_key)
-            print("DISCARD", str(discard_key))
+            print("DISCARD:", str(discard_key))
 
         self.index.append(key)
         self.counter[key] = 0
