@@ -8,8 +8,8 @@ client.on('connect', async () => {
   await main();
 });
 
-client.on('error', err => {
-  console.log(`Redis client not connected to the server: ${err}`);
+client.on('error', (err) => {
+  console.log(`Redis client not connected to the server: ${err.toString()}`);
 });
 
 function setNewSchool (schoolName, value) {
