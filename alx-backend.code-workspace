@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "0x00-pagination"
+		},
+		{
+			"path": "0x01-caching"
+		},
+		{
+			"path": "0x02-i18n"
+		},
+		{
+			"path": "0x03-queuing_system_in_js"
+		}
+	],
+	"settings": {}
+}
