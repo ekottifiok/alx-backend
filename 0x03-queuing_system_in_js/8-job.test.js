@@ -4,7 +4,7 @@ import { createqueue } from 'kue';
 import createPushNotificationsJobs from './8-job.js';
 
 describe('createPushNotificationsJobs', () => {
-  
+
 });
 
 /* eslint-env mocha */
